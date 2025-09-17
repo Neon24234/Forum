@@ -18,10 +18,10 @@ if (file_exists($file)){
     <h1>Témák:</h1>
     <br>
     <form method ="post" action="save.php">
-        <input type="text" name="temak"></input>
+        <input type="text" name="topic"></input>
         <button type="submit">save</button>
         <br>
-        <?php echo htmlspecialchars ($data['temak'] )?>
+        <?php echo htmlspecialchars ($data['topic'])?>
     </form>
     </center>
 </body>
