@@ -1,10 +1,9 @@
 <?php
-     $file = 'temak.json';
-     if(file_exists($file))
-        {
-            $json = file_get_contents($file);
-            $data = json_decode($json, true);
-        }
+$file = "lista.json";
+if (file_exists($file)){
+    $json = file_get_contents($file);
+    $data = json_decode($json, true);
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +14,15 @@
     <title>Document</title>
 </head>
 <body>
+    <center>
     <h1>Témák:</h1>
+    <br>
     <form method ="post" action="save.php">
-        <textarea name="tema" cols="60" rows="10" value='<?php echo htmlspecialchars($data['tema']);?>'></textarea>
-        <br>
+        <input type="text" name="temak"></input>
         <button type="submit">save</button>
+        <br>
+        <?php echo htmlspecialchars ($data['temak'] )?>
     </form>
+    </center>
 </body>
 </html>

@@ -1,13 +1,17 @@
 <?php
 $file = 'lista.json';
-$data = $_POST;
-$json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-if(file_put_contents($file,$json)){
-    echo "<script>
-    document.location = '/php/'
-</script> ";
+if (file_exists($file)){
+    $jsondata = file_get_contents($file);
+    $data = json_decode($jsondata);
 } else {
-    echo "Hiba történt a mentés közben!";
+    $data = [];
 }
 
+array_push($data, $_POST['topic']);
+
+$jsondata = json_encode($data);
+
+file_put_contents($file, $jsondata);
+
+include('index.php');
 ?>
